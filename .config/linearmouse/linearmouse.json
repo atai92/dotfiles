@@ -1,0 +1,40 @@
+{
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.9.5",
+  "schemes" : [
+    {
+      "scrolling" : {
+        "distance" : 4,
+        "acceleration" : 1,
+        "speed" : 0
+      },
+      "pointer" : {
+        "speed" : 0.3069,
+        "acceleration" : 0.6,
+        "disableAcceleration" : true
+      },
+      "if" : {
+        "device" : {
+          "productName" : "MIONIX NAOS PRO Gaming Mouse",
+          "vendorID" : "0x22d4",
+          "productID" : "0x132b",
+          "category" : "mouse"
+        }
+      }
+    },
+    {
+      "pointer" : {
+        "speed" : 0.1681,
+        "acceleration" : 0.4413,
+        "disableAcceleration" : true
+      },
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xc52b",
+          "productName" : "USB Receiver",
+          "vendorID" : "0x46d"
+        }
+      }
+    }
+  ]
+}
