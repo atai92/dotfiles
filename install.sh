@@ -28,7 +28,7 @@ symlink_file() {
 	ln -s $FILEPATH $SYMLINK_LOCATION
 }
 
-symlink_file $(pwd)/.bashrc
+symlink_file $(pwd)/.bashrc ~/.bashrc
 symlink_dir $(pwd)/.config ~/.config
 
 # Install brew packages if on MacOS
