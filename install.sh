@@ -17,7 +17,7 @@ symlink_dir() {
 	FILEPATH=$1
 	SYMLINK_LOCATION=$2
 	[ -d $SYMLINK_LOCATION ] && mv $SYMLINK_LOCATION $BAKUP_DIR/
-	ln -s $FILEPATH $SYMLINK_LOCATION
+	[ -e "$FILEPATH" ] || ln -s $FILEPATH $SYMLINK_LOCATION
 }
 
 # Backs up file if exists and symlinks new one into its place
@@ -25,11 +25,11 @@ symlink_file() {
 	FILEPATH=$1
 	SYMLINK_LOCATION=$2
 	[ -f $SYMLINK_LOCATION ] && mv $SYMLINK_LOCATION $BAKUP_DIR/
-	ln -s $FILEPATH $SYMLINK_LOCATION
+	[ -e "$FILEPATH" ] || ln -s $FILEPATH $SYMLINK_LOCATION
 }
 
 symlink_file $(pwd)/.bashrc ~/.bashrc
 symlink_dir $(pwd)/.config ~/.config
 
 # Install brew packages if on MacOS
-[[ "$(uname -s)" == "Darwin" ]] && ./brew_installs.sh
+[[ "$(uname -s)" == "Darwin" ]] && bash ./brew_installs.sh
