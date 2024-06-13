@@ -17,7 +17,7 @@ symlink_dir() {
 	FILEPATH=$1
 	SYMLINK_LOCATION=$2
 	[ -d $SYMLINK_LOCATION ] && mv $SYMLINK_LOCATION $BAKUP_DIR/
-	[ -e "$FILEPATH" ] || ln -s $FILEPATH $SYMLINK_LOCATION
+	test -d "$FILEPATH" || ln -s $FILEPATH $SYMLINK_LOCATION
 }
 
 # Backs up file if exists and symlinks new one into its place

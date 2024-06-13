@@ -1,14 +1,8 @@
 # Source env file which contains all the environment variables
 [ -f ~/.env ] && source ~/.env
 
-CLUSTERNAME="home"
-
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWUPSTREAM="auto"
-GIT_PS1_HIDE_IF_PWD_IGNORED=true
-GIT_PS1_SHOWCOLORHINTS=true
+# Add Homebrew to path
+export PATH=/opt/homebrew/bin:$PATH
 
 # Source all files in ~/.funcs
 for file in $(find ~/.funcs -type f); do
