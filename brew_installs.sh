@@ -17,3 +17,4 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 git clone git clone https://github.com/lincheney/fzf-tab-completion ~/fzf-tab-completion/
 ~/.fzf/install # Install tab completion
 brew install jandedobbeleer/oh-my-posh/oh-my-posh
+brew install --cask linearmouse
