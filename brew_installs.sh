@@ -4,6 +4,7 @@ set -e
 
 brew install coreutils gawk grep gnu-sed
 brew install kubectl
+brew install npm go
 
 brew install font-hack-nerd-font
 brew install bash bash-completion@2
