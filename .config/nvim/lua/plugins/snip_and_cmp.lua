@@ -15,6 +15,11 @@ return {
     },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
+      table.insert(opts.sources, 1, {
+        name = "copilot",
+        group_index = 1,
+        priority = 100,
+      })
       local has_words_before = function()
         unpack = unpack or table.unpack
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))

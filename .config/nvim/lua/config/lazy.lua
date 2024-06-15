@@ -16,6 +16,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.test.core" },
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.lang.go" },
+    { import = "lazyvim.plugins.extras.coding.copilot" },
 
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
@@ -91,9 +92,4 @@ require("lazy").setup({
       },
     },
   },
-})
-
--- IMPORTANT: make sure to setup neodev BEFORE lspconfig
-require("neodev").setup({
-  -- add any options here, or leave empty to use the default settings
 })
