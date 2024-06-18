@@ -55,3 +55,5 @@ vim.keymap.set("n", "<a-left>", "b", { desc = "jump to beginning of word." })
 vim.keymap.set("n", "<a-right>", "e", { desc = "jump to end of word." })
 vim.keymap.set("i", "<a-left>", "<c-o>b", { desc = "jump to beginning of word." })
 vim.keymap.set("i", "<a-right>", "<c-o>e", { desc = "jump to end of word." })
+
+vim.keymap.set("n", "<c-s-/>", ":terminal<cr>", { desc = "Open terminal in a new buffer." })
