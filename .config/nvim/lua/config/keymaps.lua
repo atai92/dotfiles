@@ -50,3 +50,8 @@ vim.keymap.set(
   "<CMD>lua require('telescope.builtin').buffers()<CR>",
   { desc = "Search through buffers." }
 )
+
+vim.keymap.set("n", "<a-left>", "b", { desc = "jump to beginning of word." })
+vim.keymap.set("n", "<a-right>", "e", { desc = "jump to end of word." })
+vim.keymap.set("i", "<a-left>", "<c-o>b", { desc = "jump to beginning of word." })
+vim.keymap.set("i", "<a-right>", "<c-o>e", { desc = "jump to end of word." })
