@@ -1,0 +1,10 @@
+#!/usr/bin/env lua
+
+-- Load the sketchybar-package and prepare the helper binaries
+require("helpers")
+require("init")
+
+-- Enable hot reloading
+sbar.exec("sketchybar --hotload true")
+
+sbar.exec("sketchybar --add event aerospace_workspace_change")

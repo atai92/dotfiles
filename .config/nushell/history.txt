@@ -1,0 +1,58 @@
+nvim /Users/alan.tai/dotfiles/.config/nushell
+ls
+cd dotfiles/.config/nushell/
+ls
+nvim env.nu
+exit
+ls
+cd .config/nushell/
+ls
+nvim
+exit
+kubectl -n event-schema-validator-prod describe pod event-schema-validator-job-taskmanager-1-49 
+carapace -h
+brew install carapace-bridge
+cd .config/carapace/
+ls
+cd ~
+kubectl argo rollouts -n event-collector-go-staging get rollouts event-collector-go 
+kubectl argo rollouts -n event-collector-go-staging get rollouts event-collector-go | from-yaml
+kubectl argo rollouts -n event-collector-go-staging get rollouts event-collector-go | from yaml 
+kubectl argo rollouts -n event-collector-go-staging get pods
+kubectl -n event-collector-go-staging get pods
+kubectl -n event-collector-go-staging get pods | from tsv
+kubectl -n event-collector-go-staging get pods | from tsv | sort-by AGE
+kubectl -n event-collector-go-staging get pods | from tsv | sort-by age
+kubectl -n event-collector-go-staging get pods | from tsv | sort-by #
+kubectl -n event-collector-go-staging get pods | from tsv | sort-by NAME
+kubectl -n event-collector-go-staging get configmaps
+kubectl -n event-collector-go-staging edit configmaps/event-collector-go-tmbmdggf65
+kubectl -n event-collector-go-staging describe pod event-collector-go-5b478857b-p2cnc 
+kubectl -n event-collector-go-staging edit configmaps/event-collector-go-fhf8ccm5cf
+kubectl argo rollouts -n event-collector-go-staging get ro
+kubectl argo rollouts -n event-collector-go-staging list ro
+kubectl argo rollouts -n event-collector-go-staging get ro event-collector-go
+kubectl argo rollouts -n event-collector-go-staging -h
+kubectl argo rollouts -n event-collector-go-staging restart
+kubectl argo rollouts -n event-collector-go-staging restart ro event-collector-go
+kubectl argo rollouts -n event-collector-go-staging restart event-collector-go
+kubectl argo rollouts -n event-collector-go-staging get ro
+kubectl argo rollouts -n event-collector-go-staging get ro event-collector-go 
+kubectl -n event-collector-go-staging describe pod event-collector-go-658974ff64-h8tmg | grep config
+kubectl -n event-collector-go-staging describe pod event-collector-go-658974ff64-h8tmg
+kubectl -n event-collector-go-staging edit configmaps/event-collector-go-fhf8ccm5cf
+kubectl -n event-collector-go-staging describe pod event-collector-go-75dbc5cd44-gwqf4 
+kubectl -n event-collector-go-staging edit configmaps/event-collector-go-fhf8ccm5cf
+kubectl argo rollouts -n event-collector-go-staging restart event-collector-go
+kubectl argo rollouts -n event-collector-go-staging get ro event-collector-go 
+kubectl -n event-collector-go-staging edit configmaps/event-collector-go-fhf8ccm5cf
+kubectl argo rollouts -n event-collector-go-staging restart event-collector-go
+kubectl argo rollouts -n event-collector-go-staging get ro event-collector-go 
+kubectl -n kafka-debugging delete pods alantai-debugging-1
+kubectl -n kafka-debugging delete pods alantai-debugging-2 
+kubectl -n kafka-debugging delete pods alantai-debugging-3
+kubectl get ns
+kubectl -n ws-base-default-20241210-129b04 port-forward pods/kafka-0 
+kubectl -n ws-base-default-20241210-129b04 describe pods/kafka-0 
+kubectl -n ws-base-default-20241210-129b04 port-forward pods/kafka-0 9092
+kubectl -n ws-base-default-20241210-129b04 port-forward pods/kafka-0 19092

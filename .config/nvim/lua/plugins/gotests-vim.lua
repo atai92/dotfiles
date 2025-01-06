@@ -5,6 +5,6 @@ return {
     { "<leader>tG", "<cmd>GoTestsAll<CR>", desc = "Generate go unit tests for all functions in the file." },
   },
   config = function()
-    require("gotests-vim").setup()
+    -- vim.g.gotests_template_dir = "/Users/alan.tai/go/templates/"
   end,
 }

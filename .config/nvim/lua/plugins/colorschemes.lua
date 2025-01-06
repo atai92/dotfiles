@@ -6,4 +6,9 @@ return {
   -- "Alexis12119/nightly.nvim",
   -- "embark-theme/vim",
   -- "marko-cerovac/material.nvim",
+  "AlexvZyl/nordic.nvim",
+  "Mofiqul/vscode.nvim",
+  "olimorris/onedarkpro.nvim",
+  "sainnhe/sonokai",
+  "comfysage/aki",
 }

@@ -25,3 +25,10 @@ brew install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 git clone https://github.com/lincheney/fzf-tab-completion ~/fzf-tab-completion/
 ~/.fzf/install # Install tab completion
+
+brew tap FelixKratz/formulae
+brew install sketchybar
+brew tap FelixKratz/formulae
+brew install borders
+brew install --cask nikitabobko/tap/aerospace
+brew install ghostty

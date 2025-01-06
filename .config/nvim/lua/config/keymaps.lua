@@ -18,11 +18,6 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Resume the last telescope session." }
 )
 
-vim.keymap.set("n", "<leader>n", function()
-  require("telescope").load_extension("notify")
-  require("telescope").extensions.notify.notify()
-end, { desc = "Show notifications history in telescope." })
-
 vim.keymap.set(
   "n",
   "<leader>y",

@@ -14,18 +14,18 @@ mkdir -p $BAKUP_DIR
 
 # Backs up directory if exists and symlinks new one into its place
 symlink_dir() {
-	FILEPATH=$1
-	SYMLINK_LOCATION=$2
-	[ -d $SYMLINK_LOCATION ] && mv $SYMLINK_LOCATION $BAKUP_DIR/
-	ln -s $FILEPATH $SYMLINK_LOCATION
+  FILEPATH=$1
+  SYMLINK_LOCATION=$2
+  [ -d $SYMLINK_LOCATION ] && mv $SYMLINK_LOCATION $BAKUP_DIR/
+  ln -s $FILEPATH $SYMLINK_LOCATION
 }
 
 # Backs up file if exists and symlinks new one into its place
 symlink_file() {
-	FILEPATH=$1
-	SYMLINK_LOCATION=$2
-	[ -f $SYMLINK_LOCATION ] && mv $SYMLINK_LOCATION $BAKUP_DIR/
-	[ -e "$SYMLINK_LOCATION" ] || ln -s $FILEPATH $SYMLINK_LOCATION
+  FILEPATH=$1
+  SYMLINK_LOCATION=$2
+  [ -f $SYMLINK_LOCATION ] && mv $SYMLINK_LOCATION $BAKUP_DIR/
+  [ -e "$SYMLINK_LOCATION" ] || ln -s $FILEPATH $SYMLINK_LOCATION
 }
 
 symlink_file $(pwd)/.bashrc ~/.bashrc
@@ -33,3 +33,4 @@ symlink_dir $(pwd)/.config ~/.config
 
 # Install brew packages if on MacOS
 [[ "$(uname -s)" == "Darwin" ]] && bash ./brew_installs.sh
+(git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install && rm -rf /tmp/SbarLua/)

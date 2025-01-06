@@ -3,3 +3,4 @@
 -- Add any additional options here
 vim.opt.scrolloff = 999
 vim.opt.winbar = "%=%m %f"
+-- vim.g.lazyvim_picker = "fzf"
