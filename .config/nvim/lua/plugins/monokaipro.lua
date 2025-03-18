@@ -1,7 +1,7 @@
 return {
   "loctvl842/monokai-pro.nvim",
-  "tanvirtin/monokai.nvim",
-  "joshdick/onedark.vim",
+  -- "tanvirtin/monokai.nvim",
+  -- "joshdick/onedark.vim",
   config = function()
     require("lualine").setup({
       options = {
@@ -58,7 +58,27 @@ return {
       ---@param p ColorschemeOptions
       ---@param Config MonokaiProOptions
       ---@param hp Helper
-      -- override = function(cs: Colorscheme, p: ColorschemeOptions, Config: MonokaiProOptions, hp: Helper) end,
+      -- override = function(cs: Colorscheme, p: ColorschemeOptions, Config: MonokaiProOptions, hp: Helper)
+      -- end,
+      --- @param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
+      overridePalette = function(filter)
+        return {
+          dark = "#19181a",
+          black = "#221f22",
+          red = "#ff6188",
+          green = "#20e388",
+          yellow = "#ffcb62",
+          blue = "#09abff",
+          magenta = "#ab9df2",
+          cyan = "#78dce8",
+          white = "#fcfcfa",
+          dimmed1 = "#c1c0c0",
+          dimmed2 = "#939293",
+          dimmed3 = "#727072",
+          dimmed4 = "#5b595c",
+          dimmed5 = "#403e41",
+        }
+      end,
     })
   end,
   {

@@ -7,7 +7,6 @@ return {
   -- "embark-theme/vim",
   -- "marko-cerovac/material.nvim",
   "AlexvZyl/nordic.nvim",
-  "Mofiqul/vscode.nvim",
   "olimorris/onedarkpro.nvim",
   "sainnhe/sonokai",
   "comfysage/aki",

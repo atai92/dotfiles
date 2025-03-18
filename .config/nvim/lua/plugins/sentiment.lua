@@ -1,5 +1,6 @@
 return {
   "utilyre/sentiment.nvim",
+  enabled = false,
   version = "*",
   event = "VeryLazy", -- keep for lazy loading
   opts = {

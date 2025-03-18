@@ -173,9 +173,12 @@ keybind = super+shift+f=write_scrollback_file:paste
 keybind = ctrl+f=write_scrollback_file:open
 
 # Text Movement Keybinds
-keybind = super+right=text:\x05
-keybind = super+left=text:\x01
+# keybind = super+right=text:\x05
+# keybind = super+left=text:\x01
+keybind = super+right=csi:F
+keybind = super+left=csi:H
 keybind = super+backspace=text:\x15
+keybind = super+shift+backspace=text:\x0b
 
 # Split Keybinds
 # keybind = super+alt+up=goto_split:top
@@ -218,3 +221,5 @@ keybind = super+physical:six=goto_tab:6
 keybind = super+physical:seven=goto_tab:7
 keybind = super+physical:eight=goto_tab:8
 keybind = super+physical:nine=goto_tab:9
+
+keybind = super+/=toggle_quick_terminal

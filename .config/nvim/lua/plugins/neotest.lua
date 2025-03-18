@@ -1,26 +1,31 @@
+local neotest = require("neotest")
+
 local function run_tests_open_summary()
-  require("neotest").run.run(vim.fn.expand("%"))
-  require("neotest").summary.open()
+  neotest.run.run(vim.fn.expand("%"))
+  neotest.summary.open()
 end
 
 return {
   "nvim-neotest/neotest",
   dependencies = {
-    "nvim-neotest/neotest-go",
+    "fredrikaverpil/neotest-golang",
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
 
   opts = {
-    adapters = { "neotest-go" },
+    adapters = { "neotest-golang" },
+    output = {
+      virtual_text = true,
+    },
   },
 
   keys = {
     {
       "<leader>tF",
       function()
-        require("neotest").run.run(vim.loop.cwd())
+        neotest.run.run(vim.loop.cwd())
       end,
       desc = "Run All Test Files",
     },
@@ -32,14 +37,14 @@ return {
     {
       "<leader>tt",
       function()
-        require("neotest").run.run()
+        neotest.run.run()
       end,
       desc = "Run closest test.",
     },
     {
       "<leader>tv",
       function()
-        require("neotest").output_panel.toggle()
+        neotest.output_panel.toggle()
       end,
       desc = "Toggle output panel.",
     },

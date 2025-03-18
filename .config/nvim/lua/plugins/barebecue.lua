@@ -7,5 +7,6 @@ return {
   },
   opts = {
     -- configurations go here
+    theme = "monokai-pro",
   },
 }

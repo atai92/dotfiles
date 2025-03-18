@@ -8,6 +8,7 @@ return {
           -- stylua: ignore
           vim.keymap.set( "n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
           vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { desc = "Rename File", buffer = buffer })
+          vim.diagnostic.config({ virtual_text = false })
         end)
       end,
     },
@@ -19,6 +20,13 @@ return {
         tsserver = {},
         tailwindcss = {},
         gopls = {},
+      },
+      inlay_hints = {
+        enabled = false,
+      },
+      diagnostics = {
+        virtual_text = false,
+        underline = true,
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
