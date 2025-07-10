@@ -20,13 +20,45 @@ return {
         tsserver = {},
         tailwindcss = {},
         gopls = {},
-      },
-      inlay_hints = {
-        enabled = false,
-      },
-      diagnostics = {
-        virtual_text = false,
-        underline = true,
+        metals = {
+          keys = {
+            {
+              "<leader>me",
+              function()
+                require("telescope").extensions.metals.commands()
+              end,
+              desc = "Metals commands",
+            },
+            {
+              "<leader>mc",
+              function()
+                require("metals").compile_cascade()
+              end,
+              desc = "Metals compile cascade",
+            },
+            {
+              "<leader>mh",
+              function()
+                require("metals").hover_worksheet()
+              end,
+              desc = "Metals hover worksheet",
+            },
+          },
+          init_options = {
+            statusBarProvider = "off",
+          },
+          settings = {
+            showImplicitArguments = true,
+            excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+          },
+        },
+        inlay_hints = {
+          enabled = false,
+        },
+        diagnostics = {
+          virtual_text = false,
+          underline = true,
+        },
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
@@ -35,6 +67,21 @@ return {
         -- example to setup with typescript.nvim
         tsserver = function(_, opts)
           require("typescript").setup({ server = opts })
+          return true
+        end,
+        metals = function(_, opts)
+          local metals = require("metals")
+          local metals_config = vim.tbl_deep_extend("force", metals.bare_config(), opts)
+          metals_config.on_attach = LazyVim.has("nvim-dap") and metals.setup_dap or nil
+
+          local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+          vim.api.nvim_create_autocmd("FileType", {
+            pattern = { "scala", "sbt" },
+            callback = function()
+              metals.initialize_or_attach(metals_config)
+            end,
+            group = nvim_metals_group,
+          })
           return true
         end,
         -- Specify * to use this function as a fallback for any server

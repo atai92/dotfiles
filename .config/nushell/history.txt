@@ -67,3 +67,80 @@ exit
 '{"source":"xpromo","action":"dismiss","noun":"logged_in_action","referrer":{"url":"https://www.google.com/","domain":"www.google.com"},"client_timestamp":1738254997287,"post":{"id":"t3_1hodcs5","nsfw":false,"url":"https://www.reddit.com/r/mikrotik/comments/1hodcs5/multiple_doh_servers_via_mikrotik_dns_server/","created_timestamp":1735414592698,"type":"multi_media","promoted":false,"domain":"self.mikrotik"},"action_info":{"type":"upvote","app_name":"web3x","page_type":"post_detail"},"correlation_id":"4bd22594-6e12-40cf-9ffd-72a662738f2d","request":{"canonical_url":"https://www.reddit.com/r/mikrotik/comments/1hodcs5/multiple_doh_servers_via_mikrotik_dns_server/","domain":"www.reddit.com","user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:134.0) Gecko/20100101 Firefox/134.0","client_ip":"88.19.62.206","base_url":"https://www.reddit.com/r/mikrotik/comments/1hodcs5/multiple_doh_servers_via_mikrotik_dns_server/"},"app":{"name":"web3x"},"user_preferences":{},"user":{"logged_in":false,"id":"t2_1hqhux2vie","cookie_created_timestamp":1737621130179},"platform":{"os_name":"windows","os_version":"10"},"session":{"id":"ipdhcbrmkqphdrmebh","created_timestamp":1738254995171,"referrer_url":"https://www.reddit.com/r/mikrotik/comments/1hodcs5/multiple_doh_servers_via_mikrotik_dns_server/"},"uuid":"2aff6234-23ae-414d-b70a-c4d819e2433a"}' | from json
 '{"source":"xpromo","action":"dismiss","noun":"high_flyer","referrer":{"url":"https://www.google.com/","domain":"www.google.com"},"client_timestamp":1738253459230,"post":{"id":"t3_184pxd1","nsfw":false,"url":"https://www.reddit.com/r/AMDHelp/comments/184pxd1/7900xt_crashes_constantly_10_minutes_into_a_game/","created_timestamp":1701045648790,"type":"text","promoted":false,"domain":"self.AMDHelp"},"action_info":{"type":"high_flyer","page_type":"post_detail"},"correlation_id":"e2c18dac-3235-4f12-91af-d2738fe09d83","request":{"canonical_url":"https://www.reddit.com/r/AMDHelp/comments/184pxd1/7900xt_crashes_constantly_10_minutes_into_a_game/","domain":"www.reddit.com","user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 OPR/116.0.0.0","client_ip":"178.193.4.80","base_url":"https://www.reddit.com/r/AMDHelp/comments/184pxd1/7900xt_crashes_constantly_10_minutes_into_a_game/"},"app":{"name":"web3x"},"user_preferences":{},"user":{"logged_in":false,"id":"t2_1fiq3so8rf","cookie_created_timestamp":1734826662782},"platform":{"os_name":"windows","os_version":"10"},"session":{"id":"qdebjmkdeakerikfjn","created_timestamp":1738253459446,"referrer_url":"https://www.reddit.com/r/AMDHelp/comments/184pxd1/7900xt_crashes_constantly_10_minutes_into_a_game/"},"uuid":"cd68354b-9975-4498-bd22-c2702eea778b"}' | from json | columns
 exit
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | get counts latest
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | get counts latest | into datetime
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | get counts latest 
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest 
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | into datetime .latest.completed.trigger_timestamp
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | into datetime latest.completed.trigger_timestamp
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | into datetime latest.completed.trigger_timestamp latest.completed.latest_ack_timestamp
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | into duration latest.completed.trigger_timestamp latest.completed.latest_ack_timestamp
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | into datetime latest.completed.trigger_timestamp latest.completed.latest_ack_timestamp
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | latest.completed.trigger_timestamp / 100 | into datetime latest.completed.trigger_timestamp latest.completed.latest_ack_timestamp
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | math latest.completed.trigger_timestamp / 100 | into datetime latest.completed.trigger_timestamp latest.completed.latest_ack_timestamp
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | update latest.completed.trigger_timestamp latest.completed.trigger_timestamp/1000 | into datetime latest.completed.trigger_timestamp latest.completed.latest_ack_timestamp
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | update latest.completed.trigger_timestamp {latest.completed.trigger_timestamp/1000} | into datetime latest.completed.trigger_timestamp latest.completed.latest_ack_timestamp
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | update latest.completed.trigger_timestamp { latest.completed.trigger_timestamp/1000 } | into datetime latest.completed.trigger_timestamp latest.completed.latest_ack_timestamp
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | update latest.completed.trigger_timestamp { |row| $row.latest.completed.trigger_timestamp/1000 } | into datetime latest.completed.trigger_timestamp latest.completed.latest_ack_timestamp
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | update latest.completed.trigger_timestamp { |row| $row.latest.completed.trigger_timestamp / 1000 } | into datetime latest.completed.trigger_timestamp latest.completed.latest_ack_timestamp
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | update latest.completed.trigger_timestamp { |row| $row.latest.completed.trigger_timestamp / 1000 | into datetime }
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | update latest.completed.trigger_timestamp_datetime { |row| $row.latest.completed.trigger_timestamp / 1000 | into datetime }
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest | update latest.completed.trigger_timestamp { |row| $row.latest.completed.trigger_timestamp / 1000 | into datetime }
+curl http://localhost:8081/jobs | from json
+curl http://localhost:8081/jobs/9edc78380968bc21dfe02ed718b75f64 | from json
+curl http://localhost:8081/jobs/9edc78380968bc21dfe02ed718b75f64/vertices/90bea66de1c231edf33913ecd54406c1 | from json
+curl http://localhost:8081/jobs/9edc78380968bc21dfe02ed718b75f64/checkpoints | from json
+curl http://localhost:8081/jobs/ | from json
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | into datetime history.latest_ack_timestamp
+nu version
+version 
+'1746637724097' | into datetime
+'1746637724' | into datetime
+'1746637724097000' | into datetime
+'1746637724097000000' | into datetime
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | select history
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | get history
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | get history | update trigger_timestamp { trigger_timestamp * 1000000 }
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | get history | update trigger_timestamp { row| $row.trigger_timestamp * 1000000 }
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | get history | update trigger_timestamp { |row| $row.trigger_timestamp * 1000000 }
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | get history | update trigger_timestamp { |row| $row.trigger_timestamp * 1000000 | into datetime }
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json 
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | select counts
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | select counts latest
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | select counts latest | update latest.completed.trigger_timestamp { |i| $i * 1000000 | into datetime }
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | select counts latest
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | merge ( get latest.completed counts )
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | into datetime latest.completed.trigger_timestamp
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | select counts latest history | into datetime latest.completed.trigger_timestamp
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | select counts latest history
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | select counts latest history | update history { |row| $row.trigger_timestamp * 1000000 }
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | select counts latest history | update history { |row| $row.0.trigger_timestamp * 1000000 }
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | select counts latest history | update history { |row| $row.trigger_timestamp * 1000000 }
+curl http://localhost:8081/jobs/f64196881d06385a2070bae9afc49911/checkpoints | from json | select counts latest history
+curl http://localhost:8081/jobs
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select counts latest history
+go.vim achilles-gitops/
+exit
+curl
+curl http://localhost:8081/jobs/
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000 | from json
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/vertices/20ba6b65f97481d5570070de90e4e791 | from json
+curl http://localhost:8081/jobs/ | from json
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000 | from json
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/vertices/20ba6b65f97481d5570070de90e4e791 | from json
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000 | from json | select subtask_ids
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000 | from json | select subtask_id
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000 | from json
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/vertices/20ba6b65f97481d5570070de90e4e791 | from json
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json | select history
+curl http://localhost:8081/jobs/000000006e6b13320000000000000000/checkpoints | from json
+gsutil ls gs://analytics-events-batch-sink-events-prod/
+exit
+ls
+kubectl -n swat-realtime-events-staging get pods | detect columns
+kubectl -n swat-realtime-events-staging get pods | detect columns | explore

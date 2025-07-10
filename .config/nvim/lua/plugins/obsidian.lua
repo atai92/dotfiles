@@ -21,6 +21,7 @@ return {
   dependencies = {
     -- Required.
     "nvim-lua/plenary.nvim",
+    -- "OXY2DEV/markview.nvim",
   },
   completion = {
     -- Set to false to disable completion.

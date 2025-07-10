@@ -1,6 +1,8 @@
 # Source env file which contains all the environment variables
 [ -f ~/.env ] && source ~/.env
 
+eval "$(pyenv init -)"
+
 eval "$(oh-my-posh init bash --config ~/dotfiles/.config/oh-my-posh/conf.toml)"
 
 # Sets up FZF tab completion from a separate source
@@ -18,14 +20,14 @@ done
 
 export FZF_COMPLETION_TRIGGER=''
 # Preview will show the file tree and the file contents. Any errors will be hidden, so completions that aren't files/dirs will not have a preview.
-export FZF_COMPLETION_OPTS="--style minimal --border --info=inline --height 30 --bind 'focus:transform-header:file --brief {}'"
+export FZF_COMPLETION_OPTS="--style minimal --border --info=inline --bind 'focus:transform-header:file --brief {}'"
 export FZF_COMPLETION_AUTO_COMMON_PREFIX=true
 export FZF_COMPLETION_AUTO_COMMON_PREFIX_PART=true
 # Options for path completion (e.g. vim **<TAB>)
-export FZF_COMPLETION_PATH_OPTS='--walker file,dir,follow,hidden'
+# export FZF_COMPLETION_PATH_OPTS='--walker file,dir,follow,hidden'
 # Options for directory completion (e.g. cd **<TAB>)
-export FZF_COMPLETION_DIR_OPTS='--walker dir,follow'
-export FZF_TAB_COMPLETION_PROMPT='❯ '
+# export FZF_COMPLETION_DIR_OPTS='--walker dir,follow'
+# export FZF_TAB_COMPLETION_PROMPT='❯ '
 
 # Set Fuzzy Finder Tab completion to activate on double tab -- for supporting fzf tab completion on all bash completions
 bind -x '"\t\t": fzf_bash_completion'
@@ -54,3 +56,6 @@ _fzf_comprun() {
 
 # Fuzzy Finder Tab Completion
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PATH="$PYENV_ROOT/shims:$PATH"
+source "$HOME/.sdkman/bin/sdkman-init.sh"

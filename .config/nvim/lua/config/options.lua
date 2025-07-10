@@ -3,3 +3,5 @@
 -- Add any additional options here
 vim.opt.winbar = "%=%m %f"
 vim.opt.relativenumber = false
+vim.opt.conceallevel = 1
+vim.g.vim_markdown_frontmatter = 1
