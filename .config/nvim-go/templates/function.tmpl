@@ -11,17 +11,12 @@ func {{.TestName}}(t *testing.T) {
 	}
 	{{- end}}
 	{{- with .Receiver}}{{if and .IsStruct .Fields}}
-	type fields struct {
-	{{- range .Fields}}
-		{{Field .}} {{.Type}}
-	{{- end}}
-	}
 	{{- end}}{{end}}
 	{{- with .Receiver}}{{if and .IsStruct .Fields}}
-	type setupFieldsFunc func(t *testing.T,
+	type setup{{.Type.Value}}Func func(t *testing.T,
 		{{- if $f.TestParameters}}args args, {{end}}
 		{{- range $f.TestResults}}{{Want .}} {{.Type}}, {{end -}}
-	) fields
+	) {{if .Type.IsStar}}&{{end}}{{.Type.Value}}
 	{{- end}}{{end}}
 	tests := []struct {
     name string{{with .Receiver}}{{if not .IsStruct}}{{Receiver .}} {{.Type}}{{end}}{{end}}
@@ -29,7 +24,7 @@ func {{.TestName}}(t *testing.T) {
 		{{- range .TestResults}}
 			{{Want .}} {{.Type}}
 		{{- end}}
-		{{with .Receiver}}{{if and .IsStruct .Fields}}setupFields setupFieldsFunc{{end}}{{end}}
+		{{with .Receiver}}{{if and .IsStruct .Fields}}setup{{.Type.Value}} setup{{.Type.Value}}Func{{end}}{{end}}
 		{{if .ReturnsError}}wantErr bool{{end}}
 	}{
 		// TODO: Add test cases.
@@ -38,15 +33,10 @@ func {{.TestName}}(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 			{{- with .Receiver}}{{if and .IsStruct .Fields}}
-				f := tt.setupFields(t,
+				{{Receiver .}} := tt.setup{{.Type.Value}}(t,
 					{{- if $f.TestParameters}}tt.args,{{end}}
 					{{- range $f.TestResults}}tt.{{Want .}},{{end -}}
 				)
-				{{Receiver .}} := {{if .Type.IsStar}}&{{end}}{{.Type.Value}}{
-					{{- range .Fields}}
-						{{.Name}}: f.{{Field .}},
-					{{- end}}
-				}
 			{{- end}}{{end}}
 			{{- range .Parameters}}
 				{{- if .IsWriter}}
