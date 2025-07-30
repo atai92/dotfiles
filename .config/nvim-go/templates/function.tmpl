@@ -16,7 +16,7 @@ func {{.TestName}}(t *testing.T) {
 	type setup{{.Type.Value}}Func func(t *testing.T,
 		{{- if $f.TestParameters}}args args, {{end}}
 		{{- range $f.TestResults}}{{Want .}} {{.Type}}, {{end -}}
-	) {{if .Type.IsStar}}&{{end}}{{.Type.Value}}
+	) {{if .Type.IsStar}}*{{end}}{{.Type.Value}}
 	{{- end}}{{end}}
 	tests := []struct {
     name string{{with .Receiver}}{{if not .IsStruct}}{{Receiver .}} {{.Type}}{{end}}{{end}}
